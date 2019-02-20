@@ -35,6 +35,7 @@ $(document).ready(() => {
             $('#all-tweets').empty();
             loadTweets();
           });
+        $('#tweet-input-textarea').val("");
       }
     });
   });
@@ -49,7 +50,7 @@ $(document).ready(() => {
 
 
   const renderTweets = (tweets) => {
-    tweets.forEach(element => {
+    tweets.reverse().forEach(element => {
       let tweet = createTweetElement(element);
       console.log('done');
       insertTweet(tweet);
