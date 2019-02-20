@@ -5,6 +5,7 @@ nav {
   background-color: #00a087;
   color: #e8ffdf;
   padding: 0 2em;
+  z-index: 100;
 }
 
 #nav-bar .logo{
@@ -18,4 +19,14 @@ nav {
   margin-left: 10px;
   float: left;
   line-height: 2.5em;
+}
+
+#compose-tweet{
+  float: right;
+  margin: 0.5em;
+  height: 80%;
+  background-color: #eee;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1em;
 }
