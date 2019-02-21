@@ -21,6 +21,7 @@ const timeCalc = (uTime) => {
 
 $(document).ready(() => { //checks for document readyness. everything is loaded up before executing these functions.
 
+  //Display error message upon false validation.
   const validate = () => {
     const tweet = $('#tweet-input-textarea').val();
     if (tweet === "") {
