@@ -4,6 +4,8 @@ form {
   border-radius: 5px;
   border: 1px solid #cccccc;
   margin-bottom: 5em;
+  display: none;
+
 }
 
 form .form-heading {
