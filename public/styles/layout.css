@@ -17,8 +17,8 @@ html {
 
 body {
   margin: 0;
-  color: #244751;
-  background-color: #eee;
+  color: #000;
+  background-color: #d1e8e2;
 }
 
 main  {
@@ -28,10 +28,12 @@ main  {
   padding-left: 2em;
   padding-right: 2em;
   padding-bottom: 2em;
+  background-color: #116466;
+  border: 3px solid #d9b08c;
   width: 65%;
-
-  background-color: #fff;
 }
+
+
 
 
 /*
