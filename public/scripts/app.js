@@ -19,48 +19,68 @@ const timeCalc = (uTime) => {
   return daysElapsed;
 }
 
+
+//Display error message upon false validation.
+const validate = () => {
+  const $tweet = $('#tweet-input-textarea').val();
+  //checks for Empty tweet box and responds with appropriate error
+  if ($tweet === "") {
+    $('#alerts').css({ 'visibility': 'visible' });
+    $('#alerts').slideDown(() => {
+      $('#alerts').text("Warning: No content to tweet. Please enter something in the box.");
+    });
+    setTimeout(() => {
+      $('#alerts').slideUp(() => {
+        $('#alerts').text("");
+      });
+    }, 4000);
+
+    $('#tweet-input-textarea').on('keypress', () => {
+      $('#alerts').slideUp(() => {
+        $('#alerts').text("");
+      })
+    });
+    return false;
+
+    //checks for tweet length over 140 characters.
+  } else if ($tweet.length > 140) {
+    $('#alerts').css({ 'visibility': 'visible' });
+    $('#alerts').slideDown(() => {
+      $('#alerts').text("Warning: tweet longer than 140 characters.");
+    });
+    setTimeout(() => {
+      $('#alerts').slideUp(() => {
+        $('#alerts').text("");
+      });
+    }, 4000);
+
+    $('#tweet-input-textarea').on('keypress', () => {
+      $('#alerts').slideUp(() => {
+        $('#alerts').text("");
+      })
+    });
+    return false;
+
+  }
+  return true;
+}
+
+//Adding all composed tweets to the DOM.
+const insertTweet = (composedTweet) => {
+  $('#all-tweets').append(composedTweet);
+}
+
 $(document).ready(() => { //checks for document readyness. everything is loaded up before executing these functions.
 
-  //Display error message upon false validation.
-  const validate = () => {
-    const tweet = $('#tweet-input-textarea').val();
-    if (tweet === "") {
-      $('#alerts').css({ 'visibility': 'visible' });
-      $('#alerts').slideDown(() => {
-        $('#alerts').text("Warning: No content to tweet. Please enter something in the box.");
-        setTimeout(() => {
-          $('#alerts').slideUp(() => {
-            console.log('done')
-          });
-        }, 4000);
-        console.log('triggered');
-      });
-      return false;
-    } else if (tweet.length > 140) {
-      $('#alerts').css({ 'visibility': 'visible' });
-      $('#alerts').slideDown(() => {
-        $('#alerts').text("Warning: tweet longer than 140 characters.");
-        setTimeout(() => {
-          $('#alerts').slideUp(() => {
-            console.log('done')
-          });
-        }, 4000);
-        console.log('triggered');
-      });
-      return false;
-    }
-    return true;
-  }
-
+  //Checks for a submit event, validates the form and posts tweet. Uses helper functions for validations and addition to DOM.
   $(() => {
     $('#tweetForm').submit((event) => {
       event.preventDefault();
       const valid = validate();
       if (valid) {
-        console.log('performing ajax call');
+        console.log('Loading...');
         $.post('/tweets', $('#tweetForm').serialize())
           .then(() => {
-            console.log('complete!');
             $('#all-tweets').empty();
             loadTweets();
           });
@@ -69,24 +89,24 @@ $(document).ready(() => { //checks for document readyness. everything is loaded 
     });
   });
 
+  //Makes a call to the databse and displays all tweets. 
   const loadTweets = () => {
     $.ajax('/tweets', { method: 'GET' })
       .then((moreTweets) => {
-        console.log('more Tweets: ', moreTweets);
         renderTweets(moreTweets);
       });
   }
 
 
+  //Render new tweets onto the DOM
   const renderTweets = (tweets) => {
     tweets.reverse().forEach(element => {
       let tweet = createTweetElement(element);
-      console.log('done');
       insertTweet(tweet);
-      console.log('more done');
     });
   }
 
+  //Creates the structure to place new tweets in.
   const createTweetElement = (tweet) => {
     const composed = $('<section id="tweet-container">').append(
       `<article>
@@ -112,10 +132,8 @@ $(document).ready(() => { //checks for document readyness. everything is loaded 
     return composed;
   }
 
-  const insertTweet = (composedTweet) => {
-    $('#all-tweets').append(composedTweet);
-  }
 
+  //Listens for the click on the 'Compose Tweet' button and shows and focuses on the input form upon click.
   $(() => {
     $('#compose-tweet').click(() => {
       $('#tweetForm').slideToggle("slow", () => {
