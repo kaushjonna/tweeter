@@ -2,7 +2,7 @@ nav {
   position: fixed;
   height: 80px;
   width: 100%;
-  background-color: #116466;
+  background-image: linear-gradient(to right, #6ed3cf, #9068be );
   color: #FFF;
   padding: 0 2em;
   z-index: 100;
@@ -25,15 +25,15 @@ nav {
   float: right;
   margin: 0.5em;
   height: 80%;
-  background-color: #EDDBCD;
+  background-color: #fff;
   border: 1px solid black;
   border-radius: 5px;
   padding: 1em;
 }
 
 #compose-tweet:hover {
-  border: 1 px solid #000;
-  color: #116466;
+  border: 1 px solid #e62739;
+  color: #e62739;
   background-color: #fff;
 }
 
