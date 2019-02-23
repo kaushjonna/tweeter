@@ -13,7 +13,7 @@ A Twitter clone that implements HTML, CSS, JS, jQuery and AJAX front-end, and No
 
 1. Once the page is loaded, click on the compose button that is present in the top right corner of your window.
 2. You can immediately begin typing a tweet that is >=140 characters.
-3. Once completed, press the Tweet button which will trigger the tweet to be displayed at the top of the previous tweets and presist to a MongoDB database. 
+3. Once completed, press the Tweet button which will trigger the tweet to be displayed at the top of the previous tweets and presist to a MongoDB database.
 
 ## Features
 
