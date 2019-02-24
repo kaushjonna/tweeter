@@ -4,7 +4,7 @@
   "description": "A twitter clone by Lighthouse Labs for web bootcamp students to learn front-end dev skillz",
   "main": "server/index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node server/index.js"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
