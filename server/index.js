@@ -5,8 +5,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const Mongo = require("mongodb");
+require('dotenv').config();
 const MongoClient = Mongo.MongoClient;
-const MONGODB_URI = `mongodb+srv://tweeterApp:46Spadina@cluster0-xlzmj.mongodb.net/test?retryWrites=true`;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
