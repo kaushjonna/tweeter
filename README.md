@@ -2,12 +2,15 @@
 
 A Twitter clone that implements HTML, CSS, JS, jQuery and AJAX front-end, and Node, Express and MongoDB back-end.
 
+## Screenshots
+!["Screenshot of the tweet compose box"](https://github.com/kaushjonna/tweeter/blob/master/docs/compose%20tweet%20box.png)
+!["Screenshot of a few tweets"](https://github.com/kaushjonna/tweeter/blob/master/docs/tweets.png)
+
 ## Getting Started
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+1. Install dependencies using the `npm install` command.
+2. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
+3. Go to <http://localhost:8080/> in your browser.
 
 ## Using The Application
 
