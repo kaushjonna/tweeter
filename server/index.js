@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const Mongo = require("mongodb");
 const MongoClient = Mongo.MongoClient;
-const MONGODB_URI = "mongodb://localhost:27017/tweeter";
+const MONGODB_URI = `mongodb+srv://tweeterApp:46Spadina@cluster0-xlzmj.mongodb.net/test?retryWrites=true`;
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
