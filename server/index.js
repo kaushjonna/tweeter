@@ -1,12 +1,13 @@
 "use strict";
 // Basic express setup:
-const PORT = 3000;
+const PORT = process.env.PORT;
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+require('dotenv').config();
 const Mongo = require("mongodb");
 const MongoClient = Mongo.MongoClient;
-const MONGODB_URI = `mongodb+srv://tweeterApp:46Spadina@cluster0-xlzmj.mongodb.net/test?retryWrites=true`;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
